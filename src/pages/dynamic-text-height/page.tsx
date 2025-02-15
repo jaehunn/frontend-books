@@ -3,9 +3,8 @@ import { useState } from 'react'
 import Form from '~/components/form'
 import InputText from '~/components/input-text'
 import Label from '~/components/label'
-import graphemeSegmenter from './utils/grapheme-cluster'
 
-export default function EmojiTextPage() {
+export default function DynamicTextHeightPage() {
   const [description, setDescription] = useState('')
 
   /** 이모지를 한 글자로 카운트하기 */
@@ -23,12 +22,8 @@ export default function EmojiTextPage() {
     <div>
       <Form>
         <Label htmlFor="description">Description: </Label>
-        <InputText id="description" maxLength={10} value={description} onChange={handleChangeDescription} />
+        <InputText id="description" value={description} onChange={handleChangeDescription} />
       </Form>
-
-      <div>
-        <p>Emoji Count: {graphemeSegmenter.getSegmentLength(description)}</p>
-      </div>
     </div>
   )
 }
